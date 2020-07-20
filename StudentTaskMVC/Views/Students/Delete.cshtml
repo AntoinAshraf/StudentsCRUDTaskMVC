@@ -1,0 +1,65 @@
+﻿@model StudentTaskMVC.Models.Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete @Html.DisplayNameFor(model => model.Name)</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Field
+            @*@Html.DisplayNameFor(model => model.FieldId)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Field.Name)
+        </dd>
+
+        <dt>
+            Governorate
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Governorate.Name)
+        </dd>
+
+        <dt>
+            Neighborhood
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Neighborhood.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
