@@ -22,7 +22,7 @@ namespace StudentTaskMVC.Controllers
         // GET: Students/Details/5
         public ActionResult Details(int? id) {
             if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Student student = db.Students.Find(id);
             if (student == null) {
@@ -40,8 +40,6 @@ namespace StudentTaskMVC.Controllers
         }
 
         // POST: Students/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,BirthDate,GovernorateId,NeighborhoodId,FieldId")] Student student) {
@@ -60,7 +58,7 @@ namespace StudentTaskMVC.Controllers
         // GET: Students/Edit/5
         public ActionResult Edit(int? id) {
             if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Student student = db.Students.Find(id);
             if (student == null) {
@@ -91,7 +89,7 @@ namespace StudentTaskMVC.Controllers
         // GET: Students/Delete/5
         public ActionResult Delete(int? id) {
             if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Student student = db.Students.Find(id);
             if (student == null) {
